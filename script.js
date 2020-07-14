@@ -43,32 +43,40 @@ let now = new Date();
 let exactDate = now.getDate();
 dateIndex.innerHTML = dateFormat(now);
 
-function searchCity(event) {
-  event.preventDefault();
-  let city = document.querySelector("#current-city");
-  let search = document.querySelector("#query");
-
-  city.innerHTML = search.value;
+function searchCity(city) {
+  let apiKey = "3845bbf755c7a6b2d8df3dba924feec5";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeatherCondition);
 }
-
-let searchForm = document.querySelector("form");
-searchForm.addEventListener("submit", searchCity);
-
-function showPosition(position) {
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#current-city").value;
+  searchCity(city);
+}
+function searchLocation(position) {
   let latitude = position.cords.latitude;
   let longtitude = position.cords.longtitude;
   let city = document.querySelector("#current-city");
   let search = document.querySelector("#query");
   city.innerHTML = search.value;
-  let unit = metric;
+  let unit = "metric";
   let apiKey = "3845bbf755c7a6b2d8df3dba924feec5";
-  let apiUrl = `https://api.openweathermap.org/data/2.5?weather?lat=${latitude}&lon=${longtitude}q=${city}&units=${unit}&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayWeatherCondition);
 }
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
 function showTemperature(response) {
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].main;
   let temp = Math.round(response.data.main.temp);
-  let description = document.querySelector("#current-weather");
-  description.innerHTML = response.data.weather[0].description;
   let heading = document.querySelector("#current-weather");
   axios.get(apiUrl).then(showTempreture);
 }
 
+let searchForm = document.querySelector("form");
+searchForm.addEventListener("submit", searchCity);
