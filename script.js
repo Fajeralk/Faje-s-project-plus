@@ -43,22 +43,22 @@ let now = new Date();
 let exactDate = now.getDate();
 dateIndex.innerHTML = dateFormat(now);
 
-function convertToFahrenheit (event){
+function convertToFahrenheit(event) {
   event.preventDefault();
-  let temp=math.round(search.value*(9/5)+32);
-  let tempCurrent= document.querySelector("#current-temp");
+  let temp = math.round(search.value * (9 / 5) + 32);
+  let tempCurrent = document.querySelector("#current-temp");
   tempCurrent.innerHTML = `${temp} °F `;
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
-  let temp = math.round(search.value - 32 * (5/9));
+  let temp = math.round(search.value - 32 * (5 / 9));
   let tempCurrent = document.querySelector("#current-temp");
   tempCurrent.innerHTML = `${temp} °C `;
 }
-let clickFah=document.querySelector("#fah");
+let clickFah = document.querySelector("#fah");
 clickFah.addEventListener("click", convertToFahrenheit);
-et clickCel = document.querySelector("#cels");
+let clickCel = document.querySelector("#cels");
 clickCel.addEventListener("click", convertToCelsius);
 
 function displayWeatherCondition(response) {
