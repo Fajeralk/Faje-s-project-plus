@@ -50,7 +50,7 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
-
+}
 function searchCity(city) {
   let apiKey = "3845bbf755c7a6b2d8df3dba924feec5";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -79,10 +79,9 @@ function getCurrentLocation(event) {
 }
 
 function showTemperature(response) {
-  let temperature= document.querySelector("#current-weather");
-    temperature.innerHTML = Math.round(response.data.main.temp);
- 
-  
+  let temperature = document.querySelector("#current-weather");
+  temperature.innerHTML = Math.round(response.data.main.temp);
+
   let heading = document.querySelector("#current-weather");
   axios.get(apiUrl).then(showTempreture);
 }
