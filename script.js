@@ -45,21 +45,26 @@ dateIndex.innerHTML = dateFormat(now);
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let temp = math.round(search.value * (9 / 5) + 32);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahTemp = Math.round(celsiusTemp * 9) / 5 + 32;
   let tempCurrent = document.querySelector("#current-temp");
-  tempCurrent.innerHTML = `${temp} °F `;
+  tempCurrent.innerHTML = `${fahTemp} °F `;
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
-  let temp = math.round(search.value - 32 * (5 / 9));
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   let tempCurrent = document.querySelector("#current-temp");
-  tempCurrent.innerHTML = `${temp} °C `;
+  tempCurrent.innerHTML = Math.round(`${celsiusTemp} °C `);
 }
-let clickFah = document.querySelector("#fah");
-clickFah.addEventListener("click", convertToFahrenheit);
-let clickCel = document.querySelector("#cels");
-clickCel.addEventListener("click", convertToCelsius);
+let celsiusTemp = null;
+let fahrenheitLink = document.querySelector("#fah");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiusLink = document.querySelector("#cels");
+celsiusLink.addEventListener("click", convertToCelsius);
 
 function displayWeatherCondition(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;

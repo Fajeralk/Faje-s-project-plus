@@ -73,3 +73,16 @@ li {
   position: relative;
   left: 22%;
 }
+#current-temp.units {
+  position: relative;
+  font-size: 16px;
+  top: -34px;
+}
+#current-temp.active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+#current-temp.active:hover {
+  text-decoration: none;
+}
