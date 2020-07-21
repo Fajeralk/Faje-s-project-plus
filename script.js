@@ -101,10 +101,10 @@ function getCurrentLocation(event) {
 }
 
 function showTemperature(response) {
-  document.querySelector("#current-weather").innerHTML =
-    response.data.weather[0].main;
+  document.querySelector("#current-city").innerHTML = response.data.name;
   let temp = Math.round(response.data.main.temp);
   let heading = document.querySelector("#current-weather");
+  heading.innerHTML = temp;
 }
 
 let searchForm = document.querySelector("form");
