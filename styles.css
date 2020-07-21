@@ -27,13 +27,13 @@ h2.h4 {
 }
 
 #current-weather {
-  font-size: 30px;
+  font-size: 25px;
 }
 #forecast-days {
-  font-size: 30px;
+  font-size: 20px;
   margin: 0 auto;
   position: relative;
-  left: 100%;
+  left: 200%;
   padding: 10px;
 }
 
@@ -68,7 +68,7 @@ li {
 }
 .explore {
   position: relative;
-  left: 72%;
+  left: 100%;
 }
 
 .card-img-top {
