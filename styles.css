@@ -70,11 +70,13 @@ li {
 
 #cels {
   position: relative;
-  left: 20%;
+  left: 30%;
+  margin-top: 10px;
 }
 #feh {
   position: relative;
-  left: 22%;
+  left: 33%;
+  margin-top: 10px;
 }
 #current-temp.units {
   position: relative;
