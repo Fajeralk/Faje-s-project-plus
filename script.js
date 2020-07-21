@@ -47,7 +47,7 @@ function convertToFahrenheit(event) {
   event.preventDefault();
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-  let fahTemp = Math.round(celsiusTemp * 9) / 5 + 32;
+  let fahTemp = Math.round(celsiusTemp * 1.8) + 32;
   let tempCurrent = document.querySelector("#current-temp");
   tempCurrent.innerHTML = `${fahTemp} °F `;
 }
