@@ -19,8 +19,11 @@ h2.h4 {
   left: 200%;
   padding: 10px;
 }
-
 #forecast-days {
+  font-size: 20px;
+  margin: 0 auto;
+  left: 200%;
+  padding: 10px;
 }
 li {
   color: #dd720e;
