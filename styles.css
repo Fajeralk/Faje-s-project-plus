@@ -33,7 +33,7 @@ h2.h4 {
   font-size: 20px;
   margin: 0 auto;
   position: relative;
-  left: 50%;
+  left: 30%;
   padding: 10px;
 }
 
@@ -68,7 +68,7 @@ li {
 }
 .explore {
   position: relative;
-  right: 50%;
+  right: 30%;
 }
 
 .card-img-top {
