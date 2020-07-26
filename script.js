@@ -57,7 +57,7 @@ function convertToCelsius(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let tempCurrent = document.querySelector("#current-temp");
-  tempCurrent.innerHTML = Math.round(`${celsiusTemp} °C `);
+  tempCurrent.innerHTML = `Math.round(${celsiusTemp}) °C `;
 }
 let celsiusTemp = null;
 let fahrenheitLink = document.querySelector("#fah");
@@ -73,7 +73,7 @@ function displayWeatherCondition(response) {
   );
 }
 
-unction dispalyForecast(response) {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast-hours");
   forecastElement.innerHTML = null;
   let forecast = null;
@@ -87,8 +87,8 @@ unction dispalyForecast(response) {
       </h3>
       <img
         src="http://openweathermap.org/img/wn/${
-      forecast.weather[0].icon
-      }@2x.png"
+          forecast.weather[0].icon
+        }@2x.png"
       />
       <div class="weather-forecast-temperature">
         <strong>
