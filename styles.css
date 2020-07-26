@@ -16,7 +16,7 @@ body {
 h2.h4 {
   font-size: 20px;
   margin: 0 auto;
-  left: 200%;
+  left: 100%;
   padding: 10px;
 }
 #current-time {
@@ -29,11 +29,11 @@ h2.h4 {
 #current-weather {
   font-size: 25px;
 }
-#forecast-days {
+#forecast-hours {
   font-size: 20px;
   margin: 0 auto;
   position: relative;
-  left: 30%;
+  left: 5%;
   padding: 10px;
 }
 
@@ -68,7 +68,7 @@ li {
 }
 .explore {
   position: relative;
-  right: 30%;
+  right: 5%;
 }
 
 .card-img-top {
@@ -82,12 +82,12 @@ li {
 #cels {
   position: relative;
   left: 30%;
-  margin-top: 23px;
+  margin-top: 30px;
 }
 #fah {
   position: relative;
   left: 33%;
-  margin-top: 23px;
+  margin-top: 30px;
 }
 #current-temp.units {
   position: relative;
