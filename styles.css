@@ -27,7 +27,16 @@ h2.h4 {
 }
 
 #current-weather {
-  font-size: 25px;
+  font-size: 30px;
+  font-weight: bold;
+}
+#current-description {
+  font-size: 30px;
+  font-weight: bold;
+}
+#current-wind {
+  font-size: 30px;
+  font-weight: bold;
 }
 #forecast-hours {
   font-size: 20px;
