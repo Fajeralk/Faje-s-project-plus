@@ -60,10 +60,10 @@ function convertToCelsius(event) {
   tempCurrent.innerHTML = `Math.round(${celsiusTemp}) °C `;
 }
 let celsiusTemp = null;
-let fahrenheitLink = document.querySelector("#fah");
+let fahrenheitLink = document.querySelector("#current-weather");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
-let celsiusLink = document.querySelector("#cels");
+let celsiusLink = document.querySelector("#current-weather");
 celsiusLink.addEventListener("click", convertToCelsius);
 
 function displayWeatherCondition(response) {
@@ -73,6 +73,24 @@ function displayWeatherCondition(response) {
   );
 }
 
+function formatForecastDay(timestamp) {
+  let date = new date(timestamp);
+  let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+  let day = days[date.getDay()];
+  return day;
+}
+function formatTime(timestamp) {
+  let date = new date(timestamp);
+  let currentHour = date.getHours();
+  if (currentHour < 10) {
+    currentHour = `0${currentHour}`;
+  }
+  let currentMinute = date.getMinutes();
+  if (currentMinute < 10) {
+    currentMinute = `0${currentMinute}`;
+  }
+  return `${currentHour}:${currentMinute}`;
+}
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast-hours");
   forecastElement.innerHTML = null;
@@ -99,6 +117,13 @@ function displayForecast(response) {
     </div>
   `;
   }
+}
+function apiCall(city) {
+  let apiKey = "3845bbf755c7a6b2d8df3dba924feec5";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+  let forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(forecastApiUrl).then(displayForecast);
 }
 
 function searchCity(city) {
@@ -130,6 +155,11 @@ function getCurrentLocation(event) {
 }
 
 function showTemperature(response) {
+  <img
+    src="http://openweathermap.org/img/wn/${
+          forecast.weather[0].icon
+        }@2x.png"
+  />;
   document.querySelector("#current-city").innerHTML = response.data.name;
   let temp = Math.round(response.data.main.temp);
   let heading = document.querySelector("#current-weather");
@@ -137,8 +167,7 @@ function showTemperature(response) {
 
   document.querySelector("#current-description").innerHTML =
     response.data.weather[0].description;
-  document.querySelector("#current-wind").innerHTML =
-    response.data.weather[0].wind;
+  document.querySelector("#current-wind").innerHTML = response.data.wind.speed;
 }
 
 let searchForm = document.querySelector("form");
