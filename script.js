@@ -160,7 +160,7 @@ function getCurrentLocation(event) {
 }
 
 function showTemperature(response) {
-  let img = document.querySelector("current-temp-icon");
+  let img = document.querySelector("#current-temp-icon");
   img.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`
