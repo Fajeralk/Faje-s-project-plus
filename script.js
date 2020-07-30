@@ -92,6 +92,11 @@ function formatTime(timestamp) {
   return `${currentHour}:${currentMinute}`;
 }
 function displayForecast(response) {
+  let img = document.querySelector("current-forecast-icon");
+  img.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`
+  );
   let forecastElement = document.querySelector("#forecast-hours");
   forecastElement.innerHTML = null;
   let forecast = null;
@@ -155,11 +160,11 @@ function getCurrentLocation(event) {
 }
 
 function showTemperature(response) {
-  <img
-    src="http://openweathermap.org/img/wn/${
-          forecast.weather[0].icon
-        }@2x.png"
-  />;
+  let img = document.querySelector("current-temp-icon");
+  img.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`
+  );
   document.querySelector("#current-city").innerHTML = response.data.name;
   let temp = Math.round(response.data.main.temp);
   let heading = document.querySelector("#current-weather");
