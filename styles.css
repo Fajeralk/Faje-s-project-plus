@@ -13,46 +13,44 @@ body {
   left: 200%;
   padding: 10px;
 }
-h2.h4 {
-  font-size: 20px;
-  margin: 0 auto;
-  left: 100%;
-  padding: 10px;
+#current-date {
+  font-size: 25px;
 }
 #current-time {
-  font-size: 30px;
+  font-size: 25px;
 }
 #current-city {
   font-size: 30px;
 }
-
 #current-weather {
   font-size: 30px;
   font-weight: bold;
 }
 #current-description {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
 }
 #current-wind {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
 }
-#forecast-hours {
+#title {
+  color: #dd720e;
+  font-size: 20px;
+  font-weight: bold;
+}
+#forecast-card {
   font-size: 20px;
   margin: 0 auto;
   position: relative;
   left: 5%;
-  padding: 10px;
+  padding-right: 40px;
 }
 
-li {
-  color: #dd720e;
-  height: 30px;
-  line-height: 2px;
-  font-size: 20px;
-  list-style: none;
+#forecast-hours {
+  font-size: 15px;
 }
+
 .illustration {
   display: block;
   margin: 0 auto;

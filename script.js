@@ -48,7 +48,7 @@ function convertToFahrenheit(event) {
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   let fahTemp = Math.round(celsiusTemp * 1.8) + 32;
-  let tempCurrent = document.querySelector("#current-temp");
+  let tempCurrent = document.querySelector("#fah");
   tempCurrent.innerHTML = `${fahTemp} °F `;
 }
 
@@ -56,7 +56,7 @@ function convertToCelsius(event) {
   event.preventDefault();
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
-  let tempCurrent = document.querySelector("#current-temp");
+  let tempCurrent = document.querySelector("#cels");
   tempCurrent.innerHTML = `Math.round(${celsiusTemp}) °C `;
 }
 let celsiusTemp = null;
@@ -75,7 +75,7 @@ function displayWeatherCondition(response) {
 
 function formatForecastDay(timestamp) {
   let date = new date(timestamp);
-  let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let day = days[date.getDay()];
   return day;
 }
@@ -160,9 +160,13 @@ function showTemperature(response) {
   let heading = document.querySelector("#current-weather");
   heading.innerHTML = ` ${temp} °C`;
 
-  document.querySelector("#current-description").innerHTML =
-    response.data.weather[0].description;
-  document.querySelector("#current-wind").innerHTML = response.data.wind.speed;
+  document.querySelector(
+    "#current-description"
+  ).innerHTML = `Weather currently : ${response.data.weather[0].description}`;
+
+  document.querySelector("#current-wind").innerHTML = `Wind: ${Math.round(
+    response.data.wind.speed
+  )} mph`;
 }
 
 let searchForm = document.querySelector("form");
