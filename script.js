@@ -45,19 +45,15 @@ dateIndex.innerHTML = dateFormat(now);
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
+  let tempCurrent = document.querySelector("#current-weather");
   let fahTemp = Math.round(celsiusTemp * 1.8) + 32;
-  let tempCurrent = document.querySelector("#fah");
   tempCurrent.innerHTML = `${fahTemp} °F `;
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let tempCurrent = document.querySelector("#cels");
-  tempCurrent.innerHTML = `Math.round(${celsiusTemp}) °C `;
+  let tempCurrent = document.querySelector("#current-weather");
+  tempCurrent.innerHTML = `${Math.round(celsiusTemp)} °C `;
 }
 let celsiusTemp = null;
 let fahrenheitLink = document.querySelector("#current-weather");
