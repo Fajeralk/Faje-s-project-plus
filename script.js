@@ -99,10 +99,9 @@ function displayForecast(response) {
   );
   let forecastElement = document.querySelector("#forecast-hours");
   forecastElement.innerHTML = null;
-  let forecast = null;
 
   for (let index = 0; index < 6; index++) {
-    forecast = response.data.list[index];
+    let forecast = response.data.list[index];
     forecastElement.innerHTML += `
     <div class="col-2">
       <h3>
@@ -122,13 +121,6 @@ function displayForecast(response) {
     </div>
   `;
   }
-}
-function apiCall(city) {
-  let apiKey = "3845bbf755c7a6b2d8df3dba924feec5";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
-  let forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(forecastApiUrl).then(displayForecast);
 }
 
 function searchCity(city) {
