@@ -46,7 +46,7 @@ dateIndex.innerHTML = dateFormat(now);
 function convertToFahrenheit(event) {
   event.preventDefault();
   let tempCurrent = document.querySelector("#current-weather");
-  let fahTemp = Math.round(celsiusTemp * 1.8) + 32;
+  let fahTemp = Math.round(celsiusTemp * 9) / 5 + 32;
   tempCurrent.innerHTML = `${fahTemp} °F `;
 }
 
@@ -163,6 +163,7 @@ function showTemperature(response) {
   document.querySelector("#current-wind").innerHTML = `Wind: ${Math.round(
     response.data.wind.speed
   )} mph`;
+  celsiusTemp = Math.round(response.data.main.temp);
 }
 
 let searchForm = document.querySelector("form");
