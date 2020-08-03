@@ -56,10 +56,10 @@ function convertToCelsius(event) {
   tempCurrent.innerHTML = `${Math.round(celsiusTemp)} °C `;
 }
 let celsiusTemp = null;
-let fahrenheitLink = document.querySelector("#current-weather");
+let fahrenheitLink = document.querySelector("#fah");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
-let celsiusLink = document.querySelector("#current-weather");
+let celsiusLink = document.querySelector("#cels");
 celsiusLink.addEventListener("click", convertToCelsius);
 
 function displayWeatherCondition(response) {
